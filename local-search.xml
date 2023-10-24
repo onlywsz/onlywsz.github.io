@@ -30,11 +30,11 @@
   
   
   <entry>
-    <title>埋点体系</title>
-    <link href="/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB%20(%E6%A6%82%E5%BF%B5%E7%AF%87)/"/>
-    <url>/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB%20(%E6%A6%82%E5%BF%B5%E7%AF%87)/</url>
+    <title>埋点体系总览</title>
+    <link href="/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB/"/>
+    <url>/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>概念篇：了解埋点是啥、有啥用、有哪些方案、到底采的什么数据、埋点方式</p></blockquote><h1 id="什么是埋点"><a href="#什么是埋点" class="headerlink" title="什么是埋点"></a>什么是埋点</h1><p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310101629067.png"></p><center>用户做了某个操作之后，向服务器/BI发送了一条或多条日志，这个日志就是埋点。</center><h1 id="埋点的作用"><a href="#埋点的作用" class="headerlink" title="埋点的作用"></a>埋点的作用</h1><p>* </p><p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310101629241.png" alt="maidianzuoyong"></p><h1 id="埋点方案"><a href="#埋点方案" class="headerlink" title="埋点方案"></a>埋点方案</h1><p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310102347339.png"></p><h1 id="采集的数据源"><a href="#采集的数据源" class="headerlink" title="采集的数据源"></a>采集的数据源</h1><h1 id="埋点方式"><a href="#埋点方式" class="headerlink" title="埋点方式"></a>埋点方式</h1><h1 id="触发时机"><a href="#触发时机" class="headerlink" title="触发时机"></a>触发时机</h1><h1 id="上报策略"><a href="#上报策略" class="headerlink" title="上报策略"></a>上报策略</h1><h1 id="埋点设计"><a href="#埋点设计" class="headerlink" title="埋点设计"></a>埋点设计</h1><h1 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h1><h1 id="物理模型"><a href="#物理模型" class="headerlink" title="物理模型"></a>物理模型</h1><h1 id="传参模式"><a href="#传参模式" class="headerlink" title="传参模式"></a>传参模式</h1><h1 id="用户标识"><a href="#用户标识" class="headerlink" title="用户标识"></a>用户标识</h1>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>做数产的第四个年头了，早就想针对埋点知识体系做一个全面的梳理，其实很难用一点点篇幅就把埋点这个事情讲清楚，处在不同的角色对埋点认知、要求参差不齐；对业务侧产品来说按照规范会埋点、对数分来说理解表结构能提取数据、对数开来说能针对事件维度建模、对数据产品&#x2F;专家来说，就要全面的、系统的考虑埋点的<u>规范、设计、传输、存储、计算、落盘、应用、治理</u>等等。</p></blockquote><p>声明：通过以下七篇让大家对埋点知识体系大彻大悟、醍醐灌地，本人有这个自信！全是干货没有废话！！</p><h1 id="概念篇"><a href="#概念篇" class="headerlink" title="概念篇"></a>概念篇</h1><h1 id="规范篇"><a href="#规范篇" class="headerlink" title="规范篇"></a>规范篇</h1><h1 id="设计篇"><a href="#设计篇" class="headerlink" title="设计篇"></a>设计篇</h1><h1 id="技术篇"><a href="#技术篇" class="headerlink" title="技术篇"></a>技术篇</h1><h1 id="应用篇"><a href="#应用篇" class="headerlink" title="应用篇"></a>应用篇</h1><h1 id="治理篇"><a href="#治理篇" class="headerlink" title="治理篇"></a>治理篇</h1><h1 id="思考篇"><a href="#思考篇" class="headerlink" title="思考篇"></a>思考篇</h1>]]></content>
     
     
     <categories>
@@ -57,11 +57,11 @@
   
   
   <entry>
-    <title>埋点体系总览</title>
-    <link href="/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB/"/>
-    <url>/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB/</url>
+    <title>埋点体系</title>
+    <link href="/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB%20(%E6%A6%82%E5%BF%B5%E7%AF%87)/"/>
+    <url>/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB%20(%E6%A6%82%E5%BF%B5%E7%AF%87)/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>做数产的第四个年头了，早就想针对埋点知识体系做一个全面的梳理，其实很难用一点点篇幅就把埋点这个事情讲清楚，处在不同的角色对埋点认知、要求参差不齐；对业务侧产品来说按照规范会埋点、对数分来说理解表结构能提取数据、对数开来说能针对事件维度建模、对数据产品&#x2F;专家来说，就要全面的、系统的考虑埋点的<u>规范、设计、传输、存储、计算、落盘、应用、治理</u>等等。</p></blockquote><p>声明：通过以下七篇让大家对埋点知识体系大彻大悟、醍醐灌地，本人有这个自信！全是干货没有废话！！</p><h1 id="概念篇"><a href="#概念篇" class="headerlink" title="概念篇"></a>概念篇</h1><h1 id="规范篇"><a href="#规范篇" class="headerlink" title="规范篇"></a>规范篇</h1><h1 id="设计篇"><a href="#设计篇" class="headerlink" title="设计篇"></a>设计篇</h1><h1 id="技术篇"><a href="#技术篇" class="headerlink" title="技术篇"></a>技术篇</h1><h1 id="应用篇"><a href="#应用篇" class="headerlink" title="应用篇"></a>应用篇</h1><h1 id="治理篇"><a href="#治理篇" class="headerlink" title="治理篇"></a>治理篇</h1><h1 id="思考篇"><a href="#思考篇" class="headerlink" title="思考篇"></a>思考篇</h1>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>概念篇：了解埋点是啥、有啥用、有哪些方案、到底采的什么数据、埋点方式</p></blockquote><h1 id="什么是埋点"><a href="#什么是埋点" class="headerlink" title="什么是埋点"></a>什么是埋点</h1><p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310101629067.png"></p><center>用户做了某个操作之后，向服务器/BI发送了一条或多条日志，这个日志就是埋点。</center><h1 id="埋点的作用"><a href="#埋点的作用" class="headerlink" title="埋点的作用"></a>埋点的作用</h1><p>* </p><p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310101629241.png" alt="maidianzuoyong"></p><h1 id="埋点方案"><a href="#埋点方案" class="headerlink" title="埋点方案"></a>埋点方案</h1><p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310102347339.png"></p><h1 id="采集的数据源"><a href="#采集的数据源" class="headerlink" title="采集的数据源"></a>采集的数据源</h1><h1 id="埋点方式"><a href="#埋点方式" class="headerlink" title="埋点方式"></a>埋点方式</h1><h1 id="触发时机"><a href="#触发时机" class="headerlink" title="触发时机"></a>触发时机</h1><h1 id="上报策略"><a href="#上报策略" class="headerlink" title="上报策略"></a>上报策略</h1><h1 id="埋点设计"><a href="#埋点设计" class="headerlink" title="埋点设计"></a>埋点设计</h1><h1 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h1><h1 id="物理模型"><a href="#物理模型" class="headerlink" title="物理模型"></a>物理模型</h1><h1 id="传参模式"><a href="#传参模式" class="headerlink" title="传参模式"></a>传参模式</h1><h1 id="用户标识"><a href="#用户标识" class="headerlink" title="用户标识"></a>用户标识</h1>]]></content>
     
     
     <categories>
