@@ -16,16 +16,16 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="做数产的第四个年头了，早就想针对埋点知识体系做一个全面的梳理，其实很难用一点点篇幅就把埋点这个事情讲清楚，处在不同的角色对埋点认知、要求参差不齐；对业务侧产品来说按照规范会埋点、对数分来说理解表结构能提取数据、对数开来说能针对事件维度建模、对数据产品&#x2F;专家来说，就要全面的、系统的考虑埋点的规范、设计、传输、存储、计算、落盘、应用、治理等等。  声明：通过以下七篇让大家对埋点知识体系大彻">
+    <meta name="description" content="概念篇：了解埋点是啥、有啥用、有哪些方案、到底采的什么数据、埋点方式  什么是埋点 用户做了某个操作之后，向服务器&#x2F;BI发送了一条或多条日志，这个日志就是埋点。    埋点的作用*   埋点方案 采集的数据源埋点方式触发时机上报策略埋点设计事件模型物理模型传参模式用户标识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="埋点体系总览">
-<meta property="og:url" content="http://example.com/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB/index.html">
+<meta property="og:title" content="埋点体系">
+<meta property="og:url" content="http://example.com/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB%20(%E6%A6%82%E5%BF%B5%E7%AF%87)/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="做数产的第四个年头了，早就想针对埋点知识体系做一个全面的梳理，其实很难用一点点篇幅就把埋点这个事情讲清楚，处在不同的角色对埋点认知、要求参差不齐；对业务侧产品来说按照规范会埋点、对数分来说理解表结构能提取数据、对数开来说能针对事件维度建模、对数据产品&#x2F;专家来说，就要全面的、系统的考虑埋点的规范、设计、传输、存储、计算、落盘、应用、治理等等。  声明：通过以下七篇让大家对埋点知识体系大彻">
+<meta property="og:description" content="概念篇：了解埋点是啥、有啥用、有哪些方案、到底采的什么数据、埋点方式  什么是埋点 用户做了某个操作之后，向服务器&#x2F;BI发送了一条或多条日志，这个日志就是埋点。    埋点的作用*   埋点方案 采集的数据源埋点方式触发时机上报策略埋点设计事件模型物理模型传参模式用户标识">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/maidian.png">
 <meta property="article:published_time" content="2023-09-11T10:25:15.000Z">
-<meta property="article:modified_time" content="2023-10-10T14:16:03.992Z">
+<meta property="article:modified_time" content="2023-10-10T15:47:44.179Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="埋点">
 <meta property="article:tag" content="数据采集">
@@ -34,7 +34,7 @@
   
   
   
-  <title>埋点体系总览 - blog</title>
+  <title>埋点体系 - blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="埋点体系总览"></span>
+            <span id="subtitle" data-typed-text="埋点体系"></span>
           
         </div>
 
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          244 字
+          125 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          3 分钟
+          2 分钟
         
       </span>
     
@@ -271,16 +271,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">埋点体系总览</h1>
+            <h1 id="seo-header">埋点体系</h1>
             
             
               <div class="markdown-body">
                 
                 <blockquote>
-<p>做数产的第四个年头了，早就想针对埋点知识体系做一个全面的梳理，其实很难用一点点篇幅就把埋点这个事情讲清楚，处在不同的角色对埋点认知、要求参差不齐；对业务侧产品来说按照规范会埋点、对数分来说理解表结构能提取数据、对数开来说能针对事件维度建模、对数据产品&#x2F;专家来说，就要全面的、系统的考虑埋点的<u>规范、设计、传输、存储、计算、落盘、应用、治理</u>等等。</p>
+<p>概念篇：了解埋点是啥、有啥用、有哪些方案、到底采的什么数据、埋点方式</p>
 </blockquote>
-<p>声明：通过以下七篇让大家对埋点知识体系大彻大悟、醍醐灌地，本人有这个自信！全是干货没有废话！！</p>
-<h1 id="概念篇"><a href="#概念篇" class="headerlink" title="概念篇"></a>概念篇</h1><h1 id="规范篇"><a href="#规范篇" class="headerlink" title="规范篇"></a>规范篇</h1><h1 id="设计篇"><a href="#设计篇" class="headerlink" title="设计篇"></a>设计篇</h1><h1 id="技术篇"><a href="#技术篇" class="headerlink" title="技术篇"></a>技术篇</h1><h1 id="应用篇"><a href="#应用篇" class="headerlink" title="应用篇"></a>应用篇</h1><h1 id="治理篇"><a href="#治理篇" class="headerlink" title="治理篇"></a>治理篇</h1><h1 id="思考篇"><a href="#思考篇" class="headerlink" title="思考篇"></a>思考篇</h1>
+<h1 id="什么是埋点"><a href="#什么是埋点" class="headerlink" title="什么是埋点"></a>什么是埋点</h1><p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310101629067.png" srcset="/img/loading.gif" lazyload></p>
+<center>用户做了某个操作之后，向服务器/BI发送了一条或多条日志，这个日志就是埋点。</center>
+
+
+
+<h1 id="埋点的作用"><a href="#埋点的作用" class="headerlink" title="埋点的作用"></a>埋点的作用</h1><p>* </p>
+<p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310101629241.png" srcset="/img/loading.gif" lazyload alt="maidianzuoyong"></p>
+<h1 id="埋点方案"><a href="#埋点方案" class="headerlink" title="埋点方案"></a>埋点方案</h1><p><img src="https://cdn.jsdelivr.net/gh/onlywsz/onlywsz.github.io/img/202310102347339.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="采集的数据源"><a href="#采集的数据源" class="headerlink" title="采集的数据源"></a>采集的数据源</h1><h1 id="埋点方式"><a href="#埋点方式" class="headerlink" title="埋点方式"></a>埋点方式</h1><h1 id="触发时机"><a href="#触发时机" class="headerlink" title="触发时机"></a>触发时机</h1><h1 id="上报策略"><a href="#上报策略" class="headerlink" title="上报策略"></a>上报策略</h1><h1 id="埋点设计"><a href="#埋点设计" class="headerlink" title="埋点设计"></a>埋点设计</h1><h1 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h1><h1 id="物理模型"><a href="#物理模型" class="headerlink" title="物理模型"></a>物理模型</h1><h1 id="传参模式"><a href="#传参模式" class="headerlink" title="传参模式"></a>传参模式</h1><h1 id="用户标识"><a href="#用户标识" class="headerlink" title="用户标识"></a>用户标识</h1>
                 
               </div>
             
@@ -327,8 +334,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>埋点体系总览</div>
-      <div>http://example.com/2023/09/11/埋点体系/</div>
+      <div>埋点体系</div>
+      <div>http://example.com/2023/09/11/埋点体系 (概念篇)/</div>
     </div>
     <div class="license-meta">
       
@@ -372,9 +379,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB%20(%E6%A6%82%E5%BF%B5%E7%AF%87)/" title="埋点体系">
+                      <a href="/2023/10/09/%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B/" title="大数据架构演进">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">埋点体系</span>
+                        <span class="hidden-mobile">大数据架构演进</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -382,8 +389,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/10/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2023/09/11/%E5%9F%8B%E7%82%B9%E4%BD%93%E7%B3%BB/" title="埋点体系总览">
+                        <span class="hidden-mobile">埋点体系总览</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
